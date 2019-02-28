@@ -1,0 +1,32 @@
+<div class="alert" [ngClass]="{'alert-danger': existeError, 'alert-info': !existeError}" role="alert">
+  Mensaje anclado a propiedad simple
+</div>
+
+<button class="btn btn-primary" (click)="checkInfo()">Clic para cambiar valor</button>
+
+<br>
+<br>
+<h4>Anclado a objeto</h4>
+
+<div class="alert" [ngClass]="{'alert-danger': myObject.isActivo, 'alert-info': !myObject.isActivo}" role="alert">
+  Mensaje anclado a objeto: El valor ahora es : {{ myObject.isActivo }}
+</div>
+
+<button class="btn btn-primary" (click)="checkObject()">Clic para cambiar valor </button>
+
+<br>
+<br>
+<h4>Proceso Asincrono</h4>
+
+<button class="btn btn-primary" (click)="saveData()" [disabled]="isLoading">
+    <i class="fa" [ngClass]="{'fa-refresh fa-spin': isLoading, 'fa-save': !isLoading}">
+    </i> 
+    <span *ngIf="!isLoading" > Guardar </span>
+    <span *ngIf="isLoading"> Guardando, espere... </span>
+</button>
+
+<br>
+<br>
+<h4>Directiva personalizada</h4>
+
+<p appResaltado="orange"> Hola mundo con directiva personalizada </p>
